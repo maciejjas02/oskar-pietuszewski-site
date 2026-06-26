@@ -33,12 +33,12 @@ export default function PlayerProfile({ current }) {
         {/* ŚRODKOWA KOLUMNA - DYNAMICZNE ZDJĘCIE ORAZ POŚWIATA */}
         <div className="relative flex justify-center order-1 lg:order-2 group">
           {/* Dynamiczna poświata zależna od wybranego motywu */}
-          <div className={`absolute inset-0 bg-gradient-to-tr ${current.glowClass} blur-3xl rounded-full transform scale-95 group-hover:scale-105 transition-all duration-700`}></div>
+          <div className={`absolute inset-0 bg-gradient-to-tr ${current.glowClass} blur-3xl rounded-full transform scale-95 group-hover:scale-95 transition-all duration-650`}></div>
           
           <img 
             src={current.image} 
             alt="Oskar Pietuszewski" 
-            className="relative z-10 w-full max-w-sm drop-shadow-[0_20px_50px_rgba(0,0,0,0.7)] object-contain transition-transform duration-500 hover:scale-105"
+            className={`relative z-10 w-full ${current.imageClassName || 'max-w-sm'} drop-shadow-[0_20px_50px_rgba(0,0,0,0.7)] object-contain transition-transform duration-490 hover:scale-95`}
           />
         </div>
 

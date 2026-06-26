@@ -1,15 +1,18 @@
 import { useState } from 'react';
 import PlayerProfile from './components/PlayerProfile';
 import Schedule from './components/Schedule';
-import oskarImg from './assets/oskar_png.png'; // Główne zdjęcie jako baza
+import oskarImg from './assets/oskar_png.png';
+import oskarJaga from './assets/oskar_jaga.png';
+import oskarPolsa from './assets/oskar_polska.png';
+import oskarEurope from './assets/cns.png';
 
-// Możesz dodać kolejne importy zdjęć, gdy wrzucisz je do assets, np:
-// import oskarPorto from './assets/oskar_porto.png';
+import './index.css';
+
 
 const VIEWS_DATA = {
   jaga_24_25: {
     id: 'jaga_24_25',
-    bgClass: 'bg-[#0b0804]', // Ciepła mroczna czerń
+    bgClass: 'bg-[#0b0804]',
     glowClass: 'from-yellow-500/20 to-red-500/20',
     accentColor: 'text-yellow-400',
     borderColor: 'border-yellow-500/30',
@@ -17,7 +20,8 @@ const VIEWS_DATA = {
     titleAccent: 'text-yellow-400',
     subtitle: 'Jagiellonia Białystok • Sezon 24/25',
     marketValue: '€350,000',
-    image: oskarImg, // Tutaj możesz podmienić zdjęcie dla tego motywu
+    image: oskarJaga,
+    imageClassName: 'max-w-md md:max-w-lg',
     stats: [
       { title: 'Rozegrane mecze', value: '28', icon: '🏟️' },
       { title: 'Bramki', value: '12', icon: '⚽' },
@@ -49,13 +53,13 @@ const VIEWS_DATA = {
       { title: 'Asysty', value: '4', icon: '👟' },
     ],
     info: [
-      { label: 'Klub', value: 'FC Porto B' },
+      { label: 'Klub', value: 'FC Porto' },
       { label: 'Wiek', value: '18 lat' },
       { label: 'Noga', value: 'Prawa' }
     ],
     fixtures: [
-      { id: 1, date: '14 Cze 2026', time: '20:00', home: 'FC Porto B', away: 'Benfica B', type: 'Liga Portugal 2', status: 'next' },
-      { id: 2, date: '21 Cze 2026', time: '17:30', home: 'Feirense', away: 'FC Porto B', type: 'Liga Portugal 2', status: 'upcoming' }
+      { id: 1, date: '14 Cze 2026', time: '20:00', home: 'FC Porto', away: 'Benfica', type: 'Liga Portugal 2', status: 'next' },
+      { id: 2, date: '21 Cze 2026', time: '17:30', home: 'Feirense', away: 'FC Porto', type: 'Liga Portugal 2', status: 'upcoming' }
     ]
   },
   polska: {
@@ -66,21 +70,21 @@ const VIEWS_DATA = {
     borderColor: 'border-red-500/20',
     borderActive: 'border-red-500 shadow-[0_0_15px_rgba(239,68,68,0.3)]',
     titleAccent: 'text-red-500',
-    subtitle: 'Reprezentacja Polski • Kadra Młodzieżowa',
+    subtitle: 'Reprezentacja Polski',
     marketValue: 'Krajowy Profil',
-    image: oskarImg, 
+    image: oskarPolsa, 
     stats: [
       { title: 'Mecze w kadrze', value: '10', icon: '🦅' },
       { title: 'Gole dla PL', value: '4', icon: '⚽' },
       { title: 'Debiut', value: 'U17', icon: '✨' },
     ],
     info: [
-      { label: 'Orzełek', value: 'Polska U19' },
+      { label: 'Orzełek', value: 'Polska' },
       { label: 'Status', value: 'Reprezentant' },
       { label: 'Rola', value: 'Kluczowy gracz' }
     ],
     fixtures: [
-      { id: 1, date: '18 Cze 2026', time: '16:00', home: 'Polska U19', away: 'Niemcy U19', type: 'Towarzyski', status: 'next' }
+      { id: 1, date: '18 Cze 2026', time: '16:00', home: 'Polska', away: 'Niemcy', type: 'Towarzyski', status: 'next' }
     ]
   },
   europe: {
@@ -93,7 +97,7 @@ const VIEWS_DATA = {
     titleAccent: 'text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-400',
     subtitle: 'Rozgrywki Europejskie • UEFA',
     marketValue: 'UEFA Champions League',
-    image: oskarImg, 
+    image: oskarEurope, 
     stats: [
       { title: 'Mecze UEFA', value: '5', icon: '⭐' },
       { title: 'Bramki w pucharach', value: '2', icon: '🔥' },
